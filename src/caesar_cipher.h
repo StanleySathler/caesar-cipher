@@ -23,9 +23,21 @@
   caesar_cipher_shift(char letter, unsigned short int key);
 
   /**
+   * @brief Finds the index of the decoded letter.
+   */
+  char
+  caesar_cipher_unshift(char letter, unsigned short int key);
+
+  /**
    * @brief Encodes the given text.
    */
   char*
   caesar_cipher_encode(char* text, unsigned short int key);
+
+  /**
+   * @brief Decodes the given text.
+   */
+  char*
+  caesar_cipher_decode(char* text, unsigned short int key);
 
 #endif /* __CAESAR_CIPHER_H__ */

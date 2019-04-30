@@ -31,6 +31,16 @@ caesar_cipher_shift(char letter, unsigned short int key)
 }
 
 /**
+ * @brief Finds the index of the decoded letter.
+ */
+char
+caesar_cipher_unshift(char letter, unsigned short int key)
+{
+  int index = caesar_cipher_find_index(letter);
+  return ((index - key) % 26);
+}
+
+/**
  * @brief Encodes the given text.
  */
 char*
@@ -43,4 +53,19 @@ caesar_cipher_encode(char* text, unsigned short int key)
   encoded[strlen(text)] = '\0';
 
   return encoded;
+}
+
+/**
+ * @brief Decodes the given text.
+ */
+char*
+caesar_cipher_decode(char* text, unsigned short int key)
+{
+  char* decoded = malloc(strlen(text) + 1);
+
+  for (int i = 0; text[i]; i++)
+    decoded[i] = alphabet[caesar_cipher_unshift(text[i], key)];
+  decoded[strlen(text)] = '\0';
+
+  return decoded;
 }
