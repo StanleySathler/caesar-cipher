@@ -37,7 +37,7 @@ char
 caesar_cipher_unshift(char letter, unsigned short int key)
 {
   int index = caesar_cipher_find_index(letter);
-  return ((index - key) % 26);
+  return ((index - key + 26) % 26);;
 }
 
 /**
